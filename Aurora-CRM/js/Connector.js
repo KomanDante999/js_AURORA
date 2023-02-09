@@ -91,7 +91,7 @@ export class Connector {
   loadClient(id, fullName) {
     if (!this.urlPage.hash) {
       this.urlPage.hash = id
-      location = this.urlPage.href
+      window.history.replaceState(null, null, this.urlPage.href)
     }
     this.$title.textContent = 'Загрузка данных клиента'
     this.$message.textContent = `Данные клиента ${fullName} загружаются с сервера ${this._urlServer}`
@@ -511,14 +511,13 @@ export class Connector {
   }
 
   abortConnect() {
-    console.log('abort fetch')
     this.modalWindow.closeWindow()
   }
 
   removeHashUrl() {
     if (this.urlPage.hash) {
       this.urlPage.hash = ''
-      location = this.urlPage.href
+      window.history.replaceState(null, null, this.urlPage.href)
     }
 
   }
