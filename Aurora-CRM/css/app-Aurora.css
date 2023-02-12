@@ -114,6 +114,7 @@
   line-height: 33px;
 }
 .main__table {
+  overflow-x: auto;
 }
 
 
